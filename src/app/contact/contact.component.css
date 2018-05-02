@@ -1,0 +1,43 @@
+form {
+  width: 60%;
+}
+
+img {
+  float: right;
+}
+
+#icon {
+  margin-left: 850px;
+  margin-top: -47px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#exampleModalCenter {
+  height: 300px;
+}
+
+
+
+#modalEdit {
+  height: 300px;
+}
+
+h5 {
+  text-align: center;
+}
+
+i {
+  cursor: pointer;
+}
+
+img {
+  float: right;
+  margin-top: 15px;
+}
+
+form {
+  margin-left: 15px;
+}

@@ -1,0 +1,41 @@
+<body>
+  <div>
+    <div id="lema">
+      Haz que tus ventas no sean una desesperación
+    </div>
+    <div class="card bg-light mb-3" style="max-width: 18rem;" id="card">
+      <div class="card-header">Registro</div>
+      <div class="card-body">
+
+        <form m #registerForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Nombre</label>
+            <input class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre" placeholder="Ingrese su nombre">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Correo electrónico</label>
+            <input class="form-control" name="correo" #correo="ngModel" [(ngModel)]="user.correo" placeholder="Ingrese su correo electronico"
+              name="correo">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Contraseña</label>
+            <input type="password" class="form-control" name="contrasena" #contrasena="ngModel" [(ngModel)]="user.contrasena" placeholder="Ingrese su correo contrasena">
+          </div>
+          <br>
+          <br>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Registrase</button>
+          <h5>¿Ya tienes cuenta?
+            <a [routerLink]="['/login']">Ingresa aquí</a>
+          </h5>
+          <router-outlet></router-outlet>
+        </form>
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+</body>

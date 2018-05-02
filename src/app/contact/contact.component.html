@@ -1,0 +1,100 @@
+<img src="/assets/contact.png" alt="">
+<h1>Contactos</h1>
+<form action="" method="post">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nombre</label>
+    <input class="form-control" name="nombre" [(ngModel)]="nombre" id="inputNombre" aria-describedby="emailHelp" placeholder="Ingrese el nombre">
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Telefono</label>
+    <input class="form-control" id="inputNumero" name="numero" [(ngModel)]="numero" aria-describedby="emailHelp" placeholder="Ingrese el número">
+  </div>
+
+  <div class="form-group">
+    <label for="sel1">Categoría</label>
+
+
+
+
+
+
+
+
+    <select class="form-control" id="sel1" name="idCategoria" [(ngModel)]="idCategoria">
+      <option *ngFor="let post of _postArray" [value]="post.idCategoria">
+        {{post.descripcion}}
+      </option>
+    </select>
+  </div>
+  <div id="icon">
+    <i data-toggle="modal" data-target="#exampleModalCenter" id="add" class="material-icons">library_add</i>
+  </div>
+  <br>
+  <button type="button" class="btn btn-primary" (click)="ingresarContacto()">Submit</button>
+</form>
+
+<br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Categoría</th>
+      <th>Acciones</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let list of _postArrayContacto.data">
+      <td>{{ list.idContacto }}</td>
+      <td>{{ list.nombre }}</td>
+      <td>{{ list.numero }}</td>
+      <td>{{ list.descripcion }}</td>
+      <td>
+        <i class="material-icons" (click)="openDialog(list)">mode_edit</i>
+        <i class="material-icons" (click)="deleteDialog(list)">delete_forever</i>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+
+<!-- Moldal EDIT -->
+
+
+
+
+
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar Categoría</h5>
+      </div>
+      <div class="modal-body">
+        <form action="" method="post">
+          <div class="form-group">
+
+            <label for="exampleInputEmail1">Descripción</label>
+            <input type="text" class="form-control" name="descripcionCategoria" [(ngModel)]="descripcionCategoria" placeholder="Nombre">
+          </div>
+          <button type="button" class="btn btn-primary" (click)="ingresarCategoria()" data-dismiss="modal">Registrar</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <!-- Moldal REMOVE-->

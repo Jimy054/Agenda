@@ -1,0 +1,51 @@
+<form action="" method="post">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Descripcion</label>
+    <input class="form-control" name="descripcion" [(ngModel)]="descripcion" id="inputNombre" aria-describedby="emailHelp" placeholder="Ingrese la descripcion">
+  </div>
+
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" name="fechaInicio" [(ngModel)]="fechaInicio" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker1" name="fechaEntrega" [(ngModel)]="fechaEntrega" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+
+
+  <br>
+  <button type="button" class="btn btn-primary" (click)="ingresarTarea()">Submit</button>
+</form>
+
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>Descripcion</th>
+      <th>Fecha de Inicio</th>
+      <th>Fecha de Entrega</th>
+      <th> Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let list of _postArray.data">
+      <td>{{ list.idTarea }}</td>
+      <td>{{ list.descripcion }}</td>
+      <td>{{ list.fechaInicio }}</td>
+      <td>{{ list.fechaEntrega }}</td>
+      <td>
+        <i class="material-icons" (click)="openDialog(list)">mode_edit</i>
+        <i class="material-icons" (click)="deleteDialog(list)">delete_forever</i>
+      </td>
+    </tr>
+
+  </tbody>
+</table>

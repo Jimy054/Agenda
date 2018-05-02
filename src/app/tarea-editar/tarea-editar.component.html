@@ -1,0 +1,25 @@
+<form action="" method="post">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Descripcion</label>
+    <input class="form-control" name="descripcion" [(ngModel)]="data.descripcion" id="inputNombre" aria-describedby="emailHelp"
+      placeholder="Ingrese la descripcion">
+  </div>
+
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" name="fechaInicio" [(ngModel)]="data.fechaInicio" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker1" name="fechaEntrega" [(ngModel)]="data.fechaEntrega" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+
+
+  <br>
+  <button type="button" class="btn btn-primary" (click)="actualizarTarea(data.idTarea)" (click)="onNoClick()">Submit</button>
+</form>
